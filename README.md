@@ -1,2 +1,2 @@
 # ku-polls
-web app
+Web application for conducting online polls and surveys.
