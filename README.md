@@ -1,6 +1,6 @@
 # ku-polls
 Online Polls and Survey Web Application.
-The app was built using [Django](https://www.djangoproject.com/).
+The app was built using [Django](https://www.djangoproject.com/).<br>
 App created as part of the [Individual Software Process](https://cpske.github.io/ISP/) course at Kasetsart University.
 
 # How to Install and Run
