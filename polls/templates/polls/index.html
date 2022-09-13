@@ -1,11 +1,19 @@
+<h1> KU POLL </h1>
 {% if latest_question_list %}
-    <ul>
+<ul>
     {% for question in latest_question_list %}
-        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+        <p> {{question.question_text}} </p>
+        {% if question.can_vote %}
+            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }} {{"----- Vote!"}}
+            </a></li>
+        {% endif %}
+        <li><a href="{% url 'polls:results' question.id %}">{{ "Result"}}</a></li></br>
+
     {% endfor %}
-    </ul>
+
+</ul>
 {% else %}
-    <p>No polls are available.</p>
+<p>No polls are available.</p>
 {% endif %}
 
 {% load static %}
