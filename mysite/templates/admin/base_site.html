@@ -1,4 +1,9 @@
-<p>TESTETSETSETSET</p>
-{% block content %}
+{% extends "admin/base.html" %}
 
-{% endblock content %}
+{% block title %}{{ title }} | {{ site_title|default:_('ku-polls admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Polls administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
