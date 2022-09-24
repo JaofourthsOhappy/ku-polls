@@ -1,6 +1,7 @@
 """mysite URL Configuration.
+
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -13,11 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
-
+from django.urls import path, include
+from django.shortcuts import redirect
+from . import views
 urlpatterns = [
-    path('', include('polls.urls'), name="Home"),
+    path('', lambda request: redirect('polls/')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('account/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('signup/', views.signup, name='signup')
+
 ]
