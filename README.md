@@ -11,3 +11,7 @@ To be added.
 
 # Project Documents
 All project documents are in the [Project Wiki](https://github.com/JaofourthsOhappy/ku-polls/wiki).
+
+* [Vision Statement](https://github.com/JaofourthsOhappy/ku-polls/wiki/Vision-and-Scope)
+* [Requirements](https://github.com/JaofourthsOhappy/ku-polls/wiki/Requirements)
+* [Project Plan](https://github.com/JaofourthsOhappy/ku-polls/wiki/Project--Plan)
