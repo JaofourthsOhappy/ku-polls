@@ -5,3 +5,6 @@ This app was created as part of the [Individual Software Process](https://cpske.
 
 # Installation
 To be added. If the procedure is long, put it in the wiki or a separate file.
+
+# Running the Application
+To be added.
