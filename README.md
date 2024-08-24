@@ -8,3 +8,6 @@ To be added. If the procedure is long, put it in the wiki or a separate file.
 
 # Running the Application
 To be added.
+
+# Project Documents
+All project documents are in the [Project Wiki](https://github.com/JaofourthsOhappy/ku-polls/wiki).
