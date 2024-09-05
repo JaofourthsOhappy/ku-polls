@@ -108,10 +108,10 @@ def vote(request, question_id):
         vote = Vote.objects.get(user=this_user, choice__question=question)
         # update the vote after a user has changed their vote
         vote.choice = selected_choice
+        vote.save()
     except Vote.DoesNotExist:
         # no matching vote - create a new vote object
         vote = Vote.objects.create(user=this_user, choice=selected_choice)
-    vote.save()
-    messages.success(request, f"Your vote for '{selected_choice}' has been saved.")
+    messages.success(request, f"Your vote for '{selected_choice}' has been recorded.")
     return HttpResponseRedirect(
-            reverse('polls:results', args=(question.id,)))
+        reverse('polls:results', args=(question.id,)))
