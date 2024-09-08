@@ -1,3 +1,4 @@
+{% extends 'polls/base.html' %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -5,20 +6,17 @@
 
 {% load static %}
 
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+{% endblock %}
 
+{% block content %}
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
     <li>{% if message.tags %} {{ message }} {% endif %}</li>
     {% endfor %}
 </ul>
-{% endif %}
-{% if user.is_authenticated %}
-
-Welcome back, {{user.username.title}} <form action="{% url 'logout' %}" method="post"> {% csrf_token %} <button type="submit">Log Out</button></form>
-{% else %}
-Please <a href="{% url 'login' %}?next={{request.path}}">Login</a>
 {% endif %}
 
 
@@ -39,3 +37,5 @@ Please <a href="{% url 'login' %}?next={{request.path}}">Login</a>
 {% endif %}
 
 </html>
+
+{% endblock %}

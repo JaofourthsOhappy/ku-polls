@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Additional stylesheets if needed -->
+{% block extra_css %}{% endblock %}
+
+<!--Messages go here-->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{% if message.tags %}{% endif %}{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<!--Login message and Logout button-->
+{% if user.is_authenticated %}
+<p>Welcome back, {{user.username}}</p>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Log Out</button>
+</form>
+{% else %}
+<p>Please <a href="{% url 'login' %}?next={{request.path}}">Login</a></p>
+{% endif %}
+
+<div class="content">
+    {% block content %}
+    <!-- Child templates will insert their content here -->
+    {% endblock %}
+</div>
+
+</html>
