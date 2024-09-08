@@ -73,6 +73,10 @@ class Choice(models.Model):
         Returns the number of votes for this choice.
         """
         return self.vote_set.count()
+    
+    def user_voted(self):
+        """return all the users that have voted on this choice"""
+        return (vote.user for vote in self.vote_set.all())
 
     def __str__(self):
         """
@@ -85,3 +89,6 @@ class Vote(models.Model):
     """Record a choice for a question made by a user."""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.choice} by {self.user}"
