@@ -108,6 +108,16 @@ ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
  Go to the app:
 [http://localhost:8000/](http://localhost:8000/)
 
+## Demo User Accounts
+
+Sample polls and users data are included. There are 3 demo accounts:
+
+| Username | Password |
+|:---------|---------:|
+|  harry   | hackme22 |
+|  style   | hackme22 |
+|  cold    | hackme22 |
+
 # Project Documents
 All project documents are in the [Project Wiki](https://github.com/JaofourthsOhappy/ku-polls/wiki).
 
