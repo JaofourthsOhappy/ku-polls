@@ -1,7 +1,16 @@
+{% extends 'polls/base.html' %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+
 {% load static %}
 
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+{% endblock %}
 
+{% block content %}
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -10,9 +19,13 @@
 </ul>
 {% endif %}
 
+
+
 {% if latest_question_list %}
 <ul>
     {% for question in latest_question_list %}
+        <h2 class="card-title">{{ question.question_text }}</h2>
+        <p>Status: {{ question.can_vote|yesno:"Open ✅,Closed ❌" }}</p>
     <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
         <a href="{% url 'polls:results' question.id %}">Results</a>
 
@@ -22,3 +35,7 @@
 {% else %}
 <p>No polls are available.</p>
 {% endif %}
+
+</html>
+
+{% endblock %}
