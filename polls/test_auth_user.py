@@ -2,14 +2,14 @@
 import django.test
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate # to "login" a user using code
 from polls.models import Question, Choice
 from mysite import settings
+
 
 class UserAuthTest(django.test.TestCase):
 
     def setUp(self):
-        # superclass setUp creates a Client object and initializes test database
+        # setUp creates a Client object and initializes test database
         super().setUp()
         self.username = "testuser"
         self.password = "FatChance!"
@@ -24,11 +24,10 @@ class UserAuthTest(django.test.TestCase):
         q = Question.objects.create(question_text="First Poll Question")
         q.save()
         # a few choices
-        for n in range(1,4):
+        for n in range(1, 4):
             choice = Choice(choice_text=f"Choice {n}", question=q)
             choice.save()
         self.question = q
-
 
     def test_logout(self):
         """A user can logout using the logout url.
@@ -40,7 +39,8 @@ class UserAuthTest(django.test.TestCase):
         """
         logout_url = reverse("logout")
         # Authenticate the user.
-        self.assertTrue(self.client.login(username=self.username, password=self.password))
+        self.assertTrue(self.client.login(
+            username=self.username, password=self.password))
 
         # Visit the logout page using POST request
         response = self.client.post(logout_url)
@@ -48,8 +48,6 @@ class UserAuthTest(django.test.TestCase):
 
         # Check if redirected to the logout redirect URL
         self.assertRedirects(response, reverse(settings.LOGOUT_REDIRECT_URL))
-
-
 
     def test_login_view(self):
         """A user can login using the login view."""
@@ -59,15 +57,13 @@ class UserAuthTest(django.test.TestCase):
         self.assertEqual(200, response.status_code)
         # Can login using a POST request
         # usage: client.post(url, {'key1":"value", "key2":"value"})
-        form_data = {"username": "testuser", 
-                     "password": "FatChance!"
-                    }
+        form_data = {"username": "testuser",
+                     "password": "FatChance!"}
         response = self.client.post(login_url, form_data)
         # after successful login, should redirect browser somewhere
         self.assertEqual(302, response.status_code)
         # should redirect us to the polls index page ("polls:index")
         self.assertRedirects(response, reverse(settings.LOGIN_REDIRECT_URL))
-
 
     def test_auth_required_to_vote(self):
         """Authentication is required to submit a vote.
@@ -90,6 +86,6 @@ class UserAuthTest(django.test.TestCase):
 
         # the query parameter ?next=/polls/1/vote/
         # How to fix it?
-        #self.assertRedirects(response, reverse('login') )
+        # self.assertRedirects(response, reverse('login') )
         login_with_next = f"{reverse('login')}?next={vote_url}"
         self.assertRedirects(response, login_with_next)
