@@ -66,14 +66,14 @@ class Choice(models.Model):
     """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+
     @property
     def votes(self):
         """
         Returns the number of votes for this choice.
         """
         return self.vote_set.count()
-    
+
     def user_voted(self):
         """return all the users that have voted on this choice"""
         return (vote.user for vote in self.vote_set.all())

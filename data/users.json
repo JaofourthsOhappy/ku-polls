@@ -22,7 +22,7 @@
   "pk": 2,
   "fields": {
     "password": "pbkdf2_sha256$870000$aiEV7zVaXWaulSWCbhbQaI$hKlwzbWmJs+p79/4yOsfRbTiphHhowJtsvG7jCWA/MM=",
-    "last_login": "2024-09-08T08:03:32.311Z",
+    "last_login": "2024-09-13T12:46:09.123Z",
     "is_superuser": false,
     "username": "harry",
     "first_name": "Harry",

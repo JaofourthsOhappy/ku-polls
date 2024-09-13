@@ -21,7 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-abc_tb=gel59xu)t64ci%9)ve_jx%)9w65cyho9b$sp=64umk=')
+SECRET_KEY = config(
+    'SECRET_KEY',
+    default='django-insecure-abc_tb=gel59xu)t64ci%9)ve_jx%)9w65cyho9b$sp=64umk='
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool, default=True)
@@ -106,9 +109,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Where to redirect vistior after login or logout
+# Where to redirect visitor after login or logout
 LOGIN_REDIRECT_URL = 'polls:index'   # after login, show list of polls
 LOGOUT_REDIRECT_URL = 'login'        # after logout, direct to where?
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -156,7 +160,7 @@ LOGGING = {
         }
     },
     "loggers": {
-        'polls':{
+        'polls': {
             'handlers': ['file', 'console'],
             'level': 'DEBUG',
             'propagate': True,

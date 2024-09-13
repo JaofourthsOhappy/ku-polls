@@ -1,0 +1,134 @@
+[
+{
+  "model": "polls.question",
+  "pk": 2,
+  "fields": {
+    "question_text": "Which temple is the most beautiful in Bangkok?",
+    "pub_date": "2024-08-24T13:42:26Z",
+    "end_date": null
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 3,
+  "fields": {
+    "question_text": "What's your favorite Starbucks menu item?",
+    "pub_date": "2024-08-24T14:28:22Z",
+    "end_date": null
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 4,
+  "fields": {
+    "question_text": "Past question.",
+    "pub_date": "2024-08-01T09:26:58Z",
+    "end_date": "2024-09-03T08:18:33Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 5,
+  "fields": {
+    "question_text": "Future question.",
+    "pub_date": "2024-09-30T09:26:58.422Z",
+    "end_date": null
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 4,
+  "fields": {
+    "question": 2,
+    "choice_text": "Wat Arun Ratchawararam Ratchawaramahawihan"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 5,
+  "fields": {
+    "question": 2,
+    "choice_text": "Wat Traimit"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 6,
+  "fields": {
+    "question": 2,
+    "choice_text": "Wat Ratchabophit Sathitmahasimaram Ratchaworawihan"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 7,
+  "fields": {
+    "question": 2,
+    "choice_text": "Wat Phra Chetuphon Wimon Mangkhalaram Rajwaramahawihan"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 8,
+  "fields": {
+    "question": 2,
+    "choice_text": "Wat Leng Noei Yi"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 9,
+  "fields": {
+    "question": 2,
+    "choice_text": "watson"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 11,
+  "fields": {
+    "question": 3,
+    "choice_text": "Extra Green Tea Frappuccino with Java Chip"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 12,
+  "fields": {
+    "question": 3,
+    "choice_text": "Twix Frappuccino"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 13,
+  "fields": {
+    "question": 3,
+    "choice_text": "Double Layers"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 14,
+  "fields": {
+    "question": 3,
+    "choice_text": "Green Tea Chip"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 15,
+  "fields": {
+    "question": 3,
+    "choice_text": "Double Choco Mocha"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 16,
+  "fields": {
+    "question": 3,
+    "choice_text": "Legendary Green Tea"
+  }
+}
+]

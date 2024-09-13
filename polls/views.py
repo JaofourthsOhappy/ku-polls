@@ -11,6 +11,7 @@ from .models import Choice, Question, Vote
 
 logger = logging.getLogger(__name__)
 
+
 class IndexView(generic.ListView):
     """
     Display the latest five questions.
@@ -23,7 +24,8 @@ class IndexView(generic.ListView):
         Return the last five published questions (not including those set to be
         published in the future).
         """
-        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+        return Question.objects.filter(
+            pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
@@ -87,6 +89,7 @@ class ResultsView(generic.DetailView):
             return redirect("polls:index")
         return render(request, self.template_name, {"question": question})
 
+
 @login_required
 def vote(request, question_id):
     """
@@ -102,10 +105,10 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
+        this_user = request.user
         logger.error(
             f"{this_user} submits vote without selecting a choice"
             f"on question {question}")
-        
         return render(request, 'polls/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
@@ -114,7 +117,6 @@ def vote(request, question_id):
     logger.info(f"{this_user} submits vote on choice id:"
                 f" {selected_choice.id} "
                 f"on question id: {question.id}")
-    
     # else:
     #     selected_choice.votes += 1
     #     selected_choice.save()
@@ -127,6 +129,7 @@ def vote(request, question_id):
     except Vote.DoesNotExist:
         # no matching vote - create a new vote object
         vote = Vote.objects.create(user=this_user, choice=selected_choice)
-    messages.success(request, f"Your vote for '{selected_choice}' has been recorded.")
+    messages.success(
+            request, f"Your vote for '{selected_choice}' has been recorded.")
     return HttpResponseRedirect(
         reverse('polls:results', args=(question.id,)))
