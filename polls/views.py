@@ -105,7 +105,6 @@ def vote(request, question_id):
         logger.error(
             f"{this_user} submits vote without selecting a choice"
             f"on question {question}")
-        
         return render(request, 'polls/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
@@ -114,7 +113,6 @@ def vote(request, question_id):
     logger.info(f"{this_user} submits vote on choice id:"
                 f" {selected_choice.id} "
                 f"on question id: {question.id}")
-    
     # else:
     #     selected_choice.votes += 1
     #     selected_choice.save()
@@ -127,6 +125,7 @@ def vote(request, question_id):
     except Vote.DoesNotExist:
         # no matching vote - create a new vote object
         vote = Vote.objects.create(user=this_user, choice=selected_choice)
-    messages.success(request, f"Your vote for '{selected_choice}' has been recorded.")
+    messages.success(request, 
+                     f"Your vote for '{selected_choice}' has been recorded.")
     return HttpResponseRedirect(
         reverse('polls:results', args=(question.id,)))
