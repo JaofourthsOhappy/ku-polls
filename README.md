@@ -7,6 +7,9 @@ This app was created as part of the [Individual Software Process](https://cpske.
 ## Installation
 Please follow the steps in the [Installation Instructions](Installation.md).
 
+## Running the Application
+Please follow the steps in the Installation Instructions.
+
 ### 1. Activate the Virtual Environment
 * On Linux and macOS:
 ```
@@ -42,7 +45,7 @@ Sample polls and users data are included. There are 3 demo accounts:
 |  cold    | hackme22 |
 
 # Project Documents
-All project documents are in the [Project Wiki](https://github.com/JaofourthsOhappy/ku-polls/wiki).
+All project documents are in the [Project Wiki](../../ku-polls/wiki).
 
 - [Vision Statement](../../wiki/Vision-and-Scope)
 - [Requirements](../../wiki/Requirements)
