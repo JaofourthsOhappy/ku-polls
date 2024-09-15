@@ -8,8 +8,12 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib import messages
 from .models import Choice, Question, Vote
+from django.contrib.auth import user_logged_in, \
+                                user_login_failed, \
+                                user_logged_out
+from django.dispatch import receiver
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("polls")
 
 
 class IndexView(generic.ListView):
@@ -133,3 +137,35 @@ def vote(request, question_id):
             request, f"Your vote for '{selected_choice}' has been recorded.")
     return HttpResponseRedirect(
         reverse('polls:results', args=(question.id,)))
+
+def get_client_ip(request):
+    """Get the visitor’s IP address using request headers."""
+    if request:
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(",")[0]
+        else:
+            ip = request.META.get("REMOTE_ADDR")
+        return ip
+    return None
+
+@receiver(user_logged_in)
+def login_success(sender, request, user, **kwargs):
+    """Log when user successfully login."""
+    ip_addr = get_client_ip(request)
+    logger.info(f"{user.username} logged in from {ip_addr}")
+
+
+@receiver(user_logged_out)
+def logout_success(sender, request, user, **kwargs):
+    """Log when user successfully log out."""
+    ip_addr = get_client_ip(request)
+    logger.info(f"{user.username} logged out from {ip_addr}")
+
+
+@receiver(user_login_failed)
+def login_fail(sender, credentials, request, **kwargs):
+    """Log when user failed to login."""
+    ip_addr = get_client_ip(request)
+    logger.warning(f"Failed login for {credentials['username']} \
+from {ip_addr}")
