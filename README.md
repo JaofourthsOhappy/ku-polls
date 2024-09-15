@@ -1,5 +1,6 @@
-[![Django CI](https://github.com/JaofourthsOhappy/ku-polls/actions/workflows/django.yml/badge.svg)](https://github.com/JaofourthsOhappy/ku-polls/actions/workflows/django.yml)
 # ku-polls:Online Survey Questions
+[![Django CI](https://github.com/JaofourthsOhappy/ku-polls/actions/workflows/django.yml/badge.svg)](https://github.com/JaofourthsOhappy/ku-polls/actions/workflows/django.yml)
+
 An application to conduct online polls and surveys based on the [Django Tutorial project](https://www.djangoproject.com/), with additional features.
 
 This app was created as part of the [Individual Software Process](https://cpske.github.io/ISP/) course at [Kasetsart University](https://www.ku.ac.th/th).
