@@ -138,6 +138,7 @@ def vote(request, question_id):
     return HttpResponseRedirect(
         reverse('polls:results', args=(question.id,)))
 
+
 def get_client_ip(request):
     """Get the visitor’s IP address using request headers."""
     if request:
@@ -148,6 +149,7 @@ def get_client_ip(request):
             ip = request.META.get("REMOTE_ADDR")
         return ip
     return None
+
 
 @receiver(user_logged_in)
 def login_success(sender, request, user, **kwargs):
