@@ -1,0 +1,33 @@
+[run]
+branch=True
+cover_pylib = False
+
+omit =
+    # Ignore Python standard library and add-ons
+    /usr/*
+    /usr/local/*
+    .local/*
+    env/*
+    # Ignore package __init__.py files 
+    */*/migrations/*
+    */__init__.py
+    # Ignore Django project configuration files
+    mysite/*
+    # Ignore manage.py
+    manage.py
+    # Ignore tests file
+    */*/tests/*
+    # Ignore admin.py
+    */*/admin.py
+    # Ignore apps.py
+    */*/apps.py
+    # Ignore apps.py
+    */*/urls.py
+
+include =
+    polls/*
+
+[report]
+exclude_lines =
+    def __str__
+    def __repr__
