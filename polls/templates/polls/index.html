@@ -3,7 +3,6 @@
 
 <html lang="en">
 
-
 {% load static %}
 
 {% block extra_css %}
@@ -19,17 +18,19 @@
 </ul>
 {% endif %}
 
-
-
 {% if latest_question_list %}
 <ul>
     {% for question in latest_question_list %}
+    <div class="card">
         <h2 class="card-title">{{ question.question_text }}</h2>
-        <p>Status: {{ question.can_vote|yesno:"Open ✅,Closed ❌" }}</p>
-    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
-        <a href="{% url 'polls:results' question.id %}">Results</a>
-
-    </li>
+        <p class="card-status">Status: {{ question.can_vote|yesno:"Open ✅,Closed ❌" }}</p>
+        <a href="{% url 'polls:detail' question.id %}">
+            <button>View Details</button>
+        </a>
+        <a href="{% url 'polls:results' question.id %}">
+            <button>View Results</button>
+        </a>
+    </div>
     {% endfor %}
 </ul>
 {% else %}
